@@ -14,15 +14,6 @@ authority_url = 'https://login.windows.net/common'
 resource_url = 'https://analysis.windows.net/powerbi/api'
 api_url = 'https://api.powerbi.com'
 
-
-client_id = '636b13aa-d49f-4ed3-976f-f60610db1eb0'
-username = 'y.homenko@kernel.capital'
-password = 'D4#h!.7;ZvXZ8tU/'
-
-
-# In[4]:
-
-
 context = adal.AuthenticationContext(authority=authority_url,
                                      validate_authority=True,
                                      api_version=None)
@@ -41,6 +32,7 @@ token = context.acquire_token_with_username_password(resource=resource_url,
 
 
 client = PowerBIClient(api_url, token)
+print("Client Initialized")
 
 
 # In[7]:
@@ -93,4 +85,5 @@ def refresh_dataset(client_obj, dataset_id, notify_option=None, group_id=None):
 
 
 refresh_dataset(client, "7f212b59-bccf-4f44-bf3b-318701abac50")
+print("Report Updated")
 
